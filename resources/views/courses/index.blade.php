@@ -15,7 +15,7 @@
             </div>
         </form>
 
-
+        @include('layouts.componets.alerts')
         <table class="table table-striped table-hover mt-3">
             <thead>
             <tr>

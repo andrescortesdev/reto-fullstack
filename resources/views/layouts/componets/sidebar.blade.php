@@ -56,6 +56,12 @@
                         <span> Estudiantes </span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('cursos.top') }}">
+                        <i data-feather="calendar"></i>
+                        <span> Top Cursos </span>
+                    </a>
+                </li>
             </ul>
 
         </div>

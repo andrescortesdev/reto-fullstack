@@ -7,7 +7,8 @@
                     <a href="{{ route('estudiantes.create') }}" class="btn btn-primary">Crear nuevo estudiante</a>
                 </div>
                 <div class="col-md-3">
-                    <input type="search" name="q" value="{{ request()->get('q') }}" class="form-control" placeholder="Buscar...">
+                    <input type="search" name="q" value="{{ request()->get('q') }}" class="form-control"
+                           placeholder="Buscar...">
                 </div>
                 <div class="col-md-2">
                     <button class="btn btn-primary">Buscar</button>
@@ -15,7 +16,7 @@
             </div>
         </form>
 
-
+        @include('layouts.componets.alerts')
         <table class="table table-striped table-hover mt-3">
             <thead>
             <tr>

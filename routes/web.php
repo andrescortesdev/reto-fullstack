@@ -21,8 +21,11 @@ Route::get('/', function () {
 Route::redirect('dashboard', 'cursos');
 Route::redirect('/', 'login');
 
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->group(function(){
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::resource('estudiantes', StudentsController::class);
     Route::resource('cursos', CoursesController::class);
+    Route::post('asociar-estudiante', [StudentsController::class, 'associateCourse'])->name('asociar.estudiantes.curso');
+    Route::delete('eliminar-asociacion/{id}', [StudentsController::class, 'associateCourseRemove'])->name('remover.estudiantes.curso');
+    Route::get('top-cursos', [CoursesController::class, 'top'])->name('cursos.top');
 
 });

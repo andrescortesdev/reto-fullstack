@@ -8,6 +8,13 @@
 
                     <!-- title-->
                     <h4 class="mt-0">Iniciar</h4>
+                    @if (isset($errors) && count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <ul>
+                              <li>Correo o contraseña invalidos</li>
+                            </ul>
+                        </div>
+                    @endif
                     <!-- form -->
                     <form action="{{ route('login') }}" method="post">
                         @csrf
@@ -35,11 +42,11 @@
 
         <div class="auth-fluid-right text-center">
             <div class="auth-user-testimonial">
-                <h2 class="mb-3 text-white">I love the color!</h2>
-                <p class="lead"><i class="mdi mdi-format-quote-open"></i> I've been using your theme from the previous
-                    developer for our web app, once I knew new version is out, I immediately bought with no hesitation.
-                    Great themes, good documentation with lots of customization available and sample app that really fit
-                    our need.
+                <h2 class="mb-3 text-white">FullStack Reto</h2>
+                <p class="lead"><i class="mdi mdi-format-quote-open"></i>
+                    Construya una aplicación web con estructura monolítica con Laravel que permita la gestión de
+                    cursos, estudiantes y la asignación entre estos, teniendo en cuenta que un estudiante puede estar
+                    asociado a varios cursos.
                     <i class="mdi mdi-format-quote-close"></i>
                 </p>
                 <h5 class="text-white">

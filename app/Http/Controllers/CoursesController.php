@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\StudentCourse;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CoursesController extends Controller
 {
@@ -40,7 +43,7 @@ class CoursesController extends Controller
     public function store(Request $request)
     {
         $course = Course::create($request->all());
-        return redirect()->route('cursos.index');
+        return redirect()->route('cursos.index')->with('success','Se ha creado correctamente el nuevo curso :).');
     }
 
     /**
@@ -77,7 +80,7 @@ class CoursesController extends Controller
     public function update(Request $request, $id)
     {
         $course = Course::find($id)->update($request->all());
-        return redirect()->route('cursos.index');
+        return redirect()->route('cursos.index')->with('success','Se ha actualizado correctamente el curso :).');
     }
 
     /**
@@ -89,6 +92,17 @@ class CoursesController extends Controller
     public function destroy($id)
     {
         $course = Course::find($id)->delete();
-        return redirect()->route('cursos.index');
+        return redirect()->route('cursos.index')->with('success','Se ha eliminado correctamente el curso :).');
+    }
+
+    public function top()
+    {
+        $to = Carbon::now();
+        $from = $to->subMonth(6);
+        $top = StudentCourse::whereHas('courses', function ($q) use ($to, $from) {
+            $q->where('created_at', '>', $from);
+        })->select('course_id', DB::raw('count(*) as total'))
+            ->groupBy('course_id')->orderBy('total', 'desc')->limit(3)->get();
+        return view('courses.top', compact('top'));
     }
 }
