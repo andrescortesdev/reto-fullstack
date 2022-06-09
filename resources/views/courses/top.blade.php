@@ -12,7 +12,6 @@
                 <th>FECHA INICIO</th>
                 <th>FECHA FIN</th>
                 <th>TOTAL ESTUDIANTES</th>
-                <th>OPCIONES</th>
             </tr>
             </thead>
             <tbody>
@@ -23,7 +22,6 @@
                     <td>{{ $result->courses->start_date }}</td>
                     <td>{{ $result->courses->end_date }}</td>
                     <td>{{ $result->total }}</td>
-                    <td><a href="" class="btn btn-primary btn-sm">Detalles</a></td>
                 </tr>
             @endforeach
             </tbody>
