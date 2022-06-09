@@ -2,16 +2,6 @@
 <div class="navbar-custom">
     <div class="container-fluid">
         <ul class="list-unstyled topnav-menu float-end mb-0">
-            <li class="dropdown d-inline-block d-lg-none">
-                <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <i class="fe-search noti-icon"></i>
-                </a>
-                <div class="dropdown-menu dropdown-lg dropdown-menu-end p-0">
-                    <form class="p-3">
-                        <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                    </form>
-                </div>
-            </li>
 
             <li class="dropdown d-none d-lg-inline-block">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="fullscreen" href="#">
@@ -43,7 +33,7 @@
 
         <!-- LOGO -->
         <div class="logo-box">
-            <a href="index.html" class="logo logo-light text-center">
+            <a href="{{ route('cursos.index') }}" class="logo logo-light text-center">
                 <span class="logo-sm">
                     <img src="{{ url('img/laravel-brand.png') }}" alt="" height="22">
                 </span>
